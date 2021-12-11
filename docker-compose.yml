@@ -1,0 +1,17 @@
+version: "3.8"
+
+services:
+  which-candidate-are-you:
+    build: .
+    entrypoint: ['scripts/run_jupyter.sh']
+    working_dir: /home/src/
+    tty: true
+    volumes:
+      - ./:/home/src/
+    ports:
+      - "8888:8888"
+    networks:
+      - localbound
+networks:
+  localbound:
+    external: true
